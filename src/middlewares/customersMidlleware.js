@@ -1,7 +1,7 @@
 import customersSchema from "../schemas/customersSchema.js";
 import db from '../database/db.js';
 
-export default async function customersValidation(req, res, next){
+export default async function  customersValidation(req, res, next){
     const customers = req.body;
     const validation = customersSchema.validate(customers, {abortEarly: false});
 

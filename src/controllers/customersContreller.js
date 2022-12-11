@@ -7,7 +7,7 @@ export async function getCustomers(req, res){
             const customers = await db.query(`
              SELECT *
              FROM  customers
-             WHERE customers.cpf 
+             WHERE cpf 
              LIKE $1`, [`%${cpf}%`]);
             res.send(customers.rows);
             return;
@@ -15,7 +15,6 @@ export async function getCustomers(req, res){
             const customers = await db.query(`
             SELECT * 
             FROM customers`);
-            console.log(customers.rows[0])
             res.send(customers.rows);
             return;
         } 
@@ -67,7 +66,6 @@ export async function postCustomers(req, res){
         res.sendStatus(500)
     }
 }
-
 
 export async function putCustomers(req, res){
     const id = req.params.id;
