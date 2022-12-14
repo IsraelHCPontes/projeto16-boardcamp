@@ -36,6 +36,8 @@ export async function getCustomers(req, res){
                     }
                  )   
             })
+
+            
             
             res.send(cutomersPackage);
             return;
@@ -60,7 +62,8 @@ export async function getCustomersId(req, res){
             name,
             phone,
             cpf,
-            birthday}) =>{
+            birthday}) => {
+            console.log()    
             const birthdayFormated = dayjs(birthday).format('YYYY-MM-DD')
              return(
                 {
@@ -70,9 +73,11 @@ export async function getCustomersId(req, res){
                     cpf,
                     birthday: birthdayFormated
                 }
-             )   
+             )
+           
         })
-        res.send(cutomersPackage);
+       
+        res.send(cutomersPackage[0]);
     }catch(error){
         console.log(error)
         res.sendStatus(404)
